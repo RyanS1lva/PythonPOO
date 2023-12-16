@@ -76,7 +76,7 @@ class Tamagochi:
             sleep(1)
             self.higiene = 100
             self.energia -= 10
-            print(f'{self.nome} está cheirosinho\n +100 Higiene')
+            print(f'{self.nome} está cheirosinho\n+100 Higiene')
 
 # Método retorna_status é responsável por passar ao usuário como está o seu pet virtual
     def retorna_status(self):
