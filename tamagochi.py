@@ -118,7 +118,7 @@ class Tamagochi:
             print(f'Devido a falta de cuidado {self.nome} não sobreviveu...\nTente novamente!')
             sleep(1)
     
-    # Método regras passa as regras de jogo para o usuário.
+# Método regras passa as regras de jogo para o usuário.
     def regras(self):
         print('Regras do jogo:\n'
               '1 - Os atributos chegam no máximo em 100\n'
@@ -126,7 +126,9 @@ class Tamagochi:
               '3 - Se algum atributo chegar a 0 o pet perde 50 de saúde\n'
               '4 - Se a saúde do seu pet chegar a 0 você perde o jogo.\n')   
         sleep(7)    
-    
+
+# Método dá continuidade no jogo e faz o vínculo das opções escolhidas pelo usuário com os métodos definidos para a classe.
+# Permite também encerrar o programa caso o usuário deseje, além de fazer um uso geral de métodos também aqui se aplica o uso do módulo randint.
     def roda_jogo(self):
         print(f'\nBem vindo ao Tamagochi!\nJogo desenvolvido por Ryan.')   
         sleep(3)        
@@ -155,7 +157,11 @@ class Tamagochi:
             else:
                 print('Opção inválida, tente digitar o número correspondente a função!')
                 continue
-    
+
+# Usa o randint para sortear um status para perder pontos, exigindo assim uma atenção e mannutenção frequente do usuário nos pontos perdidos.
+# Permite perder fome, diversão e higiene, não toca em outros pontos pois a energia é perdida a cada escolha e a sáude é fundamental para o pet virtual.
+# Além disso o programa também leva em conta a opção escolhida pelo usuário na rodada para não tirar pontos de um elemento que deveria somar, 
+# afim de não prejudicar a experiência final.
             sorteio = randint(0, 2)
             if sorteio == 0 and opcao != 0:
                 self.fome -= 10
@@ -171,8 +177,11 @@ class Tamagochi:
                 break
             self.retorna_status()
 
+# O programa coleta o nome do pet virtual escolhido pelo usuário e armazena na memória do atributo nome da classe Tamagochi. 
 nome_tamagochi = str(input('Digite o nome do seu pet virtual: '))
 tamagochi_usuario = Tamagochi(nome_tamagochi)
+# O código tenta executar o jogo normalmente, caso ocorra um erro de valores(ex: Esperado inteiro, digitado uma letra "string")
+# O programa então retorna a excessão imprimindo qual seria o erro para o usuário.
 try:
     tamagochi_usuario.roda_jogo()
 except ValueError:
