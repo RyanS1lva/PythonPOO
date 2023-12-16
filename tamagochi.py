@@ -31,7 +31,7 @@ class Tamagochi:
             sleep(1)
             self.fome += 10
             self.energia -= 10
-            print(f'Fome +20\nEnergia -10')
+            print(f'Fome +10\nEnergia -10')
     
     def dormir(self):
         if self.energia == 100:
